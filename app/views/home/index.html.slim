@@ -1,0 +1,31 @@
+#search-results data-ng-app='movie' data-ng-controller='SearchController'
+  .span12
+  h1= "{{blah}}"
+  .row
+    p pretty please
+  .row
+
+  .row
+    .span4.result-column
+      .selection data-ng-show='selections[0]'
+        .name
+          = "{{selections[0].name}}"
+      .inputs
+        input type='text' data-ng-model='person1Name' data-ng-change='searchPerson1()'
+      .result-list
+        select.search-list ng-model="selections[0]" ng-options="result.name for result in list1" size='6'
+    .span4.result-column
+      .text-center data-ng-show='selections[0] && selections[1]'
+        button class="btn btn-small btn-info" data-ng-click='getSimilarities()'
+          = "GET DAT"
+      .result-list
+        div data-ng-repeat='result in similarities'
+          p= "{{result.original_title}}"
+    .span4.result-column
+      .selection data-ng-show='selections[1]'
+        .name
+          = "{{selections[1].name}}"
+      .inputs
+        input type='text' data-ng-model='person2Name' data-ng-change='searchPerson2()'
+      .result-list
+        select.search-list ng-model="selections[1]" ng-options="result.name for result in list2" size='6'
