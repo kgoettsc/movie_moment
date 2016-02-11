@@ -5,7 +5,8 @@ class SearchController < ApplicationController
   end
 
   def query
-    @results = Tmdb::Person.find(params[:term]) if params[:term]
+    @results = []
+    @results = Tmdb::Person.find(params[:term]) if params[:term].present?
     render json: { results: @results }
   end
 

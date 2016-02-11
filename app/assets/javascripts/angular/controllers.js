@@ -9,6 +9,11 @@ movie.controller('SearchController', ['$scope', '$http', function($scope, $http)
   $scope.list2 = [];
   $scope.similarities = [];
 
+  $scope.selectPerson = function(person, index) {
+    console.log("SELECTED: " + person.name +"  |   "+ index);
+    $scope.selections[index] = person;
+  };
+
   $scope.searchPerson1 = function() {
 
     var request = $http.post('/search/query', {
